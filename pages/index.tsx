@@ -8,18 +8,30 @@ interface newsInterface {
 
 type newsGroup = newsInterface[];
 
-const Home: NextPage = () => {
+interface props {
+  apiUrl: string;
+}
+
+export function getStaticProps() {
+  return {
+    props: {
+      apiUrl: process.env.API_URL,
+    },
+  };
+}
+
+const Home: NextPage<props> = ({ apiUrl }) => {
   const [news, setNews] = useState<newsGroup[]>([]);
   const [websites, setWebsites] = useState<string[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:8000/all_news").then((res) =>
+    fetch(apiUrl + "all_news").then((res) =>
       res.json().then((data) => {
         setWebsites(data.pop());
         setNews(data);
       })
     );
-  }, []);
+  }, [apiUrl]);
 
   return (
     <div className="flex flex-col justify-center items-center">
