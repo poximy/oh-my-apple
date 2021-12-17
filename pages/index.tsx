@@ -1,5 +1,4 @@
 import type { NextPage } from "next";
-import { useEffect, useState } from "react";
 
 interface newsInterface {
   title: string;
@@ -9,30 +8,26 @@ interface newsInterface {
 type newsGroup = newsInterface[];
 
 interface props {
-  apiUrl: string;
+  news: newsGroup[];
+  websites: string[];
 }
 
-export function getStaticProps() {
+export async function getStaticProps() {
+  const res = await fetch(process.env.API_URL + "all_news");
+  const data = await res.json();
+
+  const websites: string[] = data.pop();
+  const news: newsGroup = data;
+
   return {
     props: {
-      apiUrl: process.env.API_URL,
+      news,
+      websites,
     },
   };
 }
 
-const Home: NextPage<props> = ({ apiUrl }) => {
-  const [news, setNews] = useState<newsGroup[]>([]);
-  const [websites, setWebsites] = useState<string[]>([]);
-
-  useEffect(() => {
-    fetch(apiUrl + "all_news").then((res) =>
-      res.json().then((data) => {
-        setWebsites(data.pop());
-        setNews(data);
-      })
-    );
-  }, [apiUrl]);
-
+const Home: NextPage<props> = ({ news, websites }) => {
   return (
     <div className="flex flex-col justify-center items-center">
       <h1 className="capitalize font-bold text-center text-4xl text-teal-400 m-2">
