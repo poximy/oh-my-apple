@@ -12,12 +12,12 @@ interface props {
   websites: string[];
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const res = await fetch(process.env.API_URL + "all_news");
   const data = await res.json();
 
   const websites: string[] = data.pop();
-  const news: newsGroup = data;
+  const news: newsGroup[] = data;
 
   return {
     props: {
