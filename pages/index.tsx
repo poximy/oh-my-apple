@@ -30,20 +30,20 @@ export async function getServerSideProps() {
 const Home: NextPage<props> = ({ news, websites }) => {
   return (
     <div className="flex flex-col justify-center items-center">
-      <h1 className="capitalize font-bold text-center text-4xl text-teal-400 m-2">
-        apple news:
+      <h1 className="capitalize font-bold text-center text-6xl text-teal-400 m-2">
+        apple news
       </h1>
       <div className="flex flex-col max-w-fit p-2">
         {news.length > 0 ? (
           news.map((group, groupIndex) => (
             <ul key={groupIndex} className="my-2 max-w-fit p-2">
-              <p className="capitalize font-bold text-2xl text-white p-2">
+              <p className="capitalize font-bold text-4xl text-white p-2">
                 {websites[groupIndex]}:
               </p>
               {group.map((data, index) => (
                 <li
                   key={index}
-                  className="m-2 p-2 rounded bg-teal-400 max-w-fit"
+                  className="text-xl m-2 p-2 rounded bg-teal-400 max-w-fit"
                 >
                   <a href={data.href} target="_blank" rel="noreferrer">
                     {data.title}
