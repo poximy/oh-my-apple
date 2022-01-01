@@ -7,7 +7,7 @@ interface newsInterface {
 
 type newsGroup = newsInterface[];
 
-interface props {
+interface Props {
   news: newsGroup[];
   websites: string[];
 }
@@ -27,7 +27,7 @@ export async function getServerSideProps() {
   };
 }
 
-const Home: NextPage<props> = ({ news, websites }) => {
+const Home: NextPage<Props> = ({ news, websites }) => {
   return (
     <div className="flex flex-col justify-center items-center">
       <h1 className="capitalize font-bold text-center text-6xl text-teal-400 m-2">
