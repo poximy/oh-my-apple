@@ -10,9 +10,15 @@ type newsGroup = newsInterface[];
 interface Props {
   news: newsGroup[];
   websites: string[];
+  daysSinceLaunch: string;
 }
 
 export async function getServerSideProps() {
+  const date1 = new Date("9/6/2019");
+  const date2 = new Date();
+  // @ts-ignore
+  const daysSinceLaunch = parseInt((date2 - date1) / (1000 * 60 * 60 * 24), 10);
+
   const res = await fetch(process.env.API_URL + "all_news");
   const data = await res.json();
 
@@ -23,16 +29,23 @@ export async function getServerSideProps() {
     props: {
       news,
       websites,
+      daysSinceLaunch,
     },
   };
 }
 
-const Home: NextPage<Props> = ({ news, websites }) => {
+const Home: NextPage<Props> = ({ news, websites, daysSinceLaunch }) => {
   return (
     <div className="flex flex-col justify-center items-center">
       <h1 className="capitalize font-bold text-center text-6xl text-teal-400 m-2">
         apple news
       </h1>
+      <div className="flex justify-center flex-col rounded bg-teal-400 text-black my-2 p-2">
+        <h2 className="text-2xl">
+          Days since Galaxy Fold launch but, no iPhone Fold:
+        </h2>
+        <p className="text-center text-4xl">{daysSinceLaunch}</p>
+      </div>
       <div className="flex flex-col max-w-fit p-2">
         {news.length > 0 ? (
           news.map((group, groupIndex) => (
