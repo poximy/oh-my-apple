@@ -8,12 +8,14 @@ interface Props {
 const NewsCard: FC<Props> = ({ news, websites }) => {
   return (
     <div className="flex flex-col max-w-fit p-2">
+      {/* Loops over group */}
       {news.length > 0 ? (
         news.map((group, groupIndex) => (
           <ul key={groupIndex} className="my-2 max-w-fit p-2">
             <p className="capitalize font-bold text-4xl text-white p-2">
               {websites[groupIndex]}:
             </p>
+            {/* Loop over news title */}
             {group.map((data, index) => (
               <li
                 key={index}
