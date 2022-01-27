@@ -7,11 +7,11 @@ interface Props {
 
 const NewsCard: FC<Props> = ({ news, websites }) => {
   return (
-    <div className="flex flex-col max-w-fit p-2">
+    <div className="flex flex-col gap-4">
       {/* Loops over group */}
       {news.length > 0 ? (
         news.map((group, groupIndex) => (
-          <ul key={groupIndex} className="my-2 max-w-fit p-2">
+          <ul key={groupIndex} className="flex flex-col gap-2">
             <p className="capitalize font-bold text-4xl text-white p-2">
               {websites[groupIndex]}:
             </p>
@@ -19,7 +19,7 @@ const NewsCard: FC<Props> = ({ news, websites }) => {
             {group.map((data, index) => (
               <li
                 key={index}
-                className="text-xl m-2 p-2 rounded bg-teal-400 max-w-fit"
+                className="text-xl p-2 rounded bg-teal-400 max-w-max"
               >
                 <a href={data.href} target="_blank" rel="noreferrer">
                   {data.title}

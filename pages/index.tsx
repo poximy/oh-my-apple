@@ -40,11 +40,11 @@ export async function getServerSideProps() {
 
 const Home: NextPage<Props> = ({ news, websites, daysSinceLaunch }) => {
   return (
-    <div className="flex flex-col justify-center items-center">
-      <h1 className="capitalize font-bold text-center text-6xl text-teal-400 m-2">
+    <div className="flex flex-col gap-8 justify-center items-center m-4">
+      <h1 className="capitalize font-bold text-center text-6xl text-teal-400">
         apple news
       </h1>
-      <div className="flex justify-center flex-col rounded bg-teal-400 text-black my-2 p-2">
+      <div className="flex justify-center flex-col rounded bg-teal-400 text-black p-2">
         <h2 className="text-2xl">
           Days since Galaxy Fold launch but, no iPhone Fold:
         </h2>
