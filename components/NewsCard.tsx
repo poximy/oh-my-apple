@@ -19,7 +19,8 @@ const NewsCard: FC<Props> = ({ news, websites }) => {
             {group.map((data, index) => (
               <li
                 key={index}
-                className="text-xl p-2 rounded bg-teal-400 max-w-max"
+                className="text-xl p-2 max-w-max bg-teal-400 hover:bg-cyan-400
+                          rounded hover:rounded-xl transition-all duration-500 ease-linear"
               >
                 <a href={data.href} target="_blank" rel="noreferrer">
                   {data.title}
