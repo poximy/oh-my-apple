@@ -4,3 +4,8 @@ interface newsInterface {
 }
 
 type newsGroup = newsInterface[];
+
+interface NewsData {
+  news: newsGroup[];
+  websites: string[];
+}
