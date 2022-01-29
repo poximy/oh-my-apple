@@ -19,7 +19,7 @@ const NewsGroup: FC<{ webisteName: string }> = (props) => {
 const NewsItem: FC<newsInterface> = ({ href, title }) => {
   return (
     <li
-      className="text-xl p-2 max-w-max bg-teal-400 hover:bg-cyan-400
+      className="text-2xl md:text-xl p-2 max-w-max bg-teal-400 hover:bg-cyan-400
       rounded hover:rounded-xl transition-all duration-500 ease-linear"
     >
       <a href={href} target="_blank" rel="noreferrer">
