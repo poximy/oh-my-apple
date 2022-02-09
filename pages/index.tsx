@@ -1,6 +1,5 @@
 import DaysSinceLaunch from "@components/DaysSinceLaunch";
 import NewsCard from "@components/NewsCard";
-
 import type { NextPage } from "next";
 
 type Props = NewsData | null;
