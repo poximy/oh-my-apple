@@ -5,11 +5,11 @@ interface Props {
   websites: string[];
 }
 
-const NewsGroup: FC<{ webisteName: string }> = (props) => {
+const NewsGroup: FC<{ websiteName: string }> = (props) => {
   return (
     <ul className="flex flex-col gap-2">
       <p className="capitalize font-bold text-4xl text-white p-2">
-        {props.webisteName}
+        {props.websiteName}
       </p>
       {props.children}
     </ul>
@@ -35,7 +35,7 @@ const NewsCard: FC<Props> = ({ news, websites }) => {
       {/* Loops over group */}
       {news.length > 0 ? (
         news.map((group, groupIndex) => (
-          <NewsGroup key={groupIndex} webisteName={websites[groupIndex]}>
+          <NewsGroup key={groupIndex} websiteName={websites[groupIndex]}>
             {group.map((data, ItemIndex) => (
               <NewsItem key={ItemIndex} {...data} />
             ))}
