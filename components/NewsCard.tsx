@@ -20,7 +20,7 @@ const NewsItem: FC<newsInterface> = ({ href, title }) => {
   return (
     <li
       className="text-2xl md:text-xl p-2 max-w-max bg-teal-400 hover:bg-cyan-400
-      rounded hover:rounded-xl transition-all duration-500 ease-linear"
+      rounded hover:rounded-xl transition-all duration-500 ease-linear hover:scale-[1.025]"
     >
       <a href={href} target="_blank" rel="noreferrer">
         {title}
