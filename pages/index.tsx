@@ -5,7 +5,7 @@ import Head from 'next/head';
 
 type Props = NewsData | null;
 
-const getNews = async () => {
+const getNews = async function () {
   try {
     const res = await fetch(process.env.API_URL + 'all_news');
     const data = await res.json();

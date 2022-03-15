@@ -1,4 +1,4 @@
-const DaysSinceLaunch = () => {
+const DaysSinceLaunch = function () {
   const date1 = new Date('9/6/2019');
   const date2 = new Date();
 
