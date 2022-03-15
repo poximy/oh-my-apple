@@ -5,7 +5,7 @@ const DaysSinceLaunch = function () {
   // @ts-ignore
   const daysSinceLaunch = parseInt((date2 - date1) / (1000 * 60 * 60 * 24), 10);
   return (
-    <div className='flex justify-center flex-col rounded bg-teal-400 text-black p-2'>
+    <div className='flex flex-col justify-center rounded bg-teal-400 p-2 text-black'>
       <h2 className='text-2xl'>
         Days since Galaxy Fold launch but, no iPhone Fold:
       </h2>

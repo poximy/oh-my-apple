@@ -8,7 +8,7 @@ interface Props {
 const NewsGroup: FC<{ websiteName: string }> = props => {
   return (
     <ul className='flex flex-col gap-2'>
-      <p className='capitalize font-bold text-4xl text-white p-2'>
+      <p className='p-2 text-4xl font-bold capitalize text-white'>
         {props.websiteName}
       </p>
       {props.children}
@@ -19,8 +19,8 @@ const NewsGroup: FC<{ websiteName: string }> = props => {
 const NewsItem: FC<newsInterface> = ({ href, title }) => {
   return (
     <li
-      className='bg-teal-400 hover:bg-cyan-400
-      rounded transition-all duration-300 ease-linear hover:scale-[1.025]'
+      className='rounded bg-teal-400
+      transition-all duration-300 ease-linear hover:scale-[1.025] hover:bg-cyan-400'
     >
       <a href={href} target='_blank' rel='noreferrer'>
         <p className='p-2 text-2xl md:text-xl'>{title}</p>
@@ -42,7 +42,7 @@ const NewsCard: FC<Props> = ({ news, websites }) => {
           </NewsGroup>
         ))
       ) : (
-        <p className='capitalize text-center text-xl'>No News Available</p>
+        <p className='text-center text-xl capitalize'>No News Available</p>
       )}
     </div>
   );
