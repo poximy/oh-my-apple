@@ -5,17 +5,14 @@ import Head from 'next/head';
 
 type Props = NewsData | null;
 
-const getNews = async function () {
+const getNews = async function (): Promise<Props> {
   try {
     const res = await fetch(process.env.API_URL + 'all_news');
     const data = await res.json();
 
-    const websites: string[] = data.pop();
-    const news: newsGroup[] = data;
-
     return {
-      news,
-      websites,
+      news: data.news as newsGroup[],
+      websites: data.websites as string[],
     };
   } catch (error) {
     console.log(error);
