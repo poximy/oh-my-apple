@@ -42,7 +42,7 @@ const NewsItem: FC<newsInterface> = ({ href, title }) => {
 const NewsCard: FC<Props> = ({ news, websites }) => {
   return (
     <div className='flex flex-col gap-4'>
-      {/* Loops over group */}
+      {/* Loops over a group of news */}
       {news.length > 0 ? (
         news.map((group, groupIndex) => (
           <NewsGroup key={groupIndex} websiteName={websites[groupIndex]}>
