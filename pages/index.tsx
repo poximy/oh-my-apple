@@ -20,13 +20,12 @@ const getNews = async function (): Promise<Props> {
   }
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const newsData = await getNews();
   return {
     props: {
       newsData,
     },
-    revalidate: 60,
   };
 }
 
