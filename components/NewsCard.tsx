@@ -18,12 +18,9 @@ const NewsGroup: FC<{ websiteName: string }> = props => {
 
 const NewsItem: FC<newsInterface> = ({ href, title }) => {
   return (
-    <li
-      className='group relative rounded bg-teal-400 transition-all
-      duration-300 ease-linear hover:scale-[1.025] hover:bg-cyan-400'
-    >
+    <li className='group relative rounded bg-teal-400'>
       <a href={href} target='_blank' rel='noreferrer'>
-        <p className='p-2 text-2xl md:text-xl'>{title}</p>
+        <p className='p-2 text-2xl group-hover:underline md:text-xl'>{title}</p>
       </a>
       <svg
         xmlns='http://www.w3.org/2000/svg'
