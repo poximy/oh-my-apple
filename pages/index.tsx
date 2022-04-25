@@ -17,12 +17,13 @@ const getNews = async function () {
   }
 };
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const newsData = await getNews();
   return {
     props: {
       newsData,
     },
+    revalidate: 60,
   };
 }
 
