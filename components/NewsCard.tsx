@@ -1,22 +1,35 @@
 import type { FC } from 'react';
+import React from 'react';
 
-interface Props {
-  news: newsGroup[];
-  websites: string[];
+const parseUrl = function (url: string): string {
+  let domain = ''
+
+  for (let i = 8; i < url.length - 4; i++) {
+    domain += url[i]
+  }
+
+  return domain
 }
 
-const NewsGroup: FC<{ websiteName: string }> = props => {
+const NewsCard: FC<{ newsData: [string, news[]] }> = ({newsData}) => {
+  const [url, news] = newsData;
+  const title = parseUrl(url);
+
   return (
-    <ul className='flex flex-col gap-2'>
+    <ul className='flex flex-col gap-2 w-full md:w-4/5 lg:w-2/3'>
       <p className='p-2 text-4xl font-bold capitalize text-white'>
-        {props.websiteName}
+        {title}
       </p>
-      {props.children}
+      {news.map((news, index) => (
+        <>
+          <NewsItem key={index} title={news.title} href={url + news.href} />
+        </>
+      ))}
     </ul>
   );
 };
 
-const NewsItem: FC<newsInterface> = ({ href, title }) => {
+const NewsItem: FC<news> = ({ href, title }) => {
   return (
     <li className='group relative rounded bg-teal-400'>
       <a href={href} target='_blank' rel='noreferrer'>
@@ -36,23 +49,4 @@ const NewsItem: FC<newsInterface> = ({ href, title }) => {
   );
 };
 
-const NewsCard: FC<Props> = ({ news, websites }) => {
-  return (
-    <div className='flex flex-col gap-4'>
-      {/* Loops over a group of news */}
-      {news.length > 0 ? (
-        news.map((group, groupIndex) => (
-          <NewsGroup key={groupIndex} websiteName={websites[groupIndex]}>
-            {group.map((data, ItemIndex) => (
-              <NewsItem key={ItemIndex} {...data} />
-            ))}
-          </NewsGroup>
-        ))
-      ) : (
-        <p className='text-center text-xl capitalize'>No News Available</p>
-      )}
-    </div>
-  );
-};
-
-export default NewsCard;
+export default NewsCard

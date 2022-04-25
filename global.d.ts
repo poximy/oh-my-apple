@@ -1,11 +1,6 @@
-interface newsInterface {
+interface news {
   title: string;
   href: string;
 }
 
-type newsGroup = newsInterface[];
-
-interface NewsData {
-  news: newsGroup[];
-  websites: string[];
-}
+type NewsData = { [website: string]: news[] };

@@ -3,19 +3,16 @@ import NewsCard from '@components/NewsCard';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 
-type Props = NewsData | null;
+interface Props {
+  newsData: NewsData | null;
+}
 
-const getNews = async function (): Promise<Props> {
+const getNews = async function () {
   try {
-    const res = await fetch(process.env.API_URL + 'all_news');
-    const data = await res.json();
-
-    return {
-      news: data.news as newsGroup[],
-      websites: data.websites as string[],
-    };
-  } catch (error) {
-    console.log(error);
+    const res = await fetch(process.env.API_URL + '/all_news');
+    const newsData = await res.json();
+    return newsData as NewsData;
+  } catch {
     return null;
   }
 };
@@ -29,7 +26,7 @@ export async function getServerSideProps() {
   };
 }
 
-const Home: NextPage<{ newsData: Props | null }> = ({ newsData }) => {
+const Home: NextPage<Props> = ({ newsData }) => {
   return (
     <>
       <Head>
@@ -40,10 +37,14 @@ const Home: NextPage<{ newsData: Props | null }> = ({ newsData }) => {
           apple rumors
         </h1>
         <DaysSinceLaunch />
-        {newsData !== null ? (
-          <NewsCard {...newsData} />
-        ) : (
+        {newsData === null ? (
           <p className='text-6xl text-white'>Error No News Found :(</p>
+        ) : (
+          <>
+            {Object.entries(newsData).map((newsData, index) => (
+              <NewsCard key={index} newsData={newsData}/>
+            ))}
+          </>
         )}
       </div>
     </>
