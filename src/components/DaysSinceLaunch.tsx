@@ -9,7 +9,9 @@ const DaysSinceLaunch = function () {
       <h2 className='text-2xl'>
         Days since Galaxy Fold launch but, no iPhone Fold:
       </h2>
-      <p className='text-center text-4xl'>{daysSinceLaunch}</p>
+      <p className='text-center font-mono text-4xl font-bold'>
+        {daysSinceLaunch}
+      </p>
     </div>
   );
 };

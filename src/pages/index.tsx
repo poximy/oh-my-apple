@@ -1,4 +1,3 @@
-import DaysSinceLaunch from '@components/DaysSinceLaunch';
 import NewsCard from '@components/NewsCard';
 import type { NextPage } from 'next';
 import Head from 'next/head';
@@ -33,17 +32,16 @@ const Home: NextPage<Props> = ({ newsData }) => {
       <Head>
         <title>Apple Rumors</title>
       </Head>
-      <div className='m-4 flex flex-col items-center justify-center gap-8'>
-        <h1 className='text-center text-6xl font-bold capitalize text-teal-400'>
-          apple rumors
-        </h1>
-        <DaysSinceLaunch />
+      <div className='flex flex-col items-center gap-8 text-white'>
+        <nav className='text-center font-mono text-white'>
+          <h1 className='text-4xl font-bold capitalize'>apple rumors</h1>
+        </nav>
         {newsData === null ? (
-          <p className='text-6xl text-white'>Error No News Found :(</p>
+          <p className='col-span-3 text-4xl'>Error No News Found :(</p>
         ) : (
           <>
             {Object.entries(newsData).map((newsData, index) => (
-              <NewsCard key={index} newsData={newsData}/>
+              <NewsCard key={newsData[0]} newsData={newsData} />
             ))}
           </>
         )}

@@ -1,10 +1,17 @@
 module.exports = {
-  content: [
-    './pages/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}',
-  ],
+  content: ['./src/{pages,components}/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: '#262626',
+        secondary: '#393939',
+        'secondary-light': '#333333',
+      },
+      fontFamily: {
+        'ibm-sans': ['IBM Plex Sans', 'sans-serif'],
+        'ibm-mono': ['IBM Plex Mono', 'monospace'],
+      },
+    },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/line-clamp')],
 };
