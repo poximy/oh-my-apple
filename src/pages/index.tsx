@@ -46,6 +46,14 @@ const Home: NextPage<Props> = ({ newsData }) => {
             ))}
           </>
         )}
+        <footer className='font-mono'>
+          <p>
+            Made by{' '}
+            <a className='hover:underline' href='https://github.com/poximy'>
+              Poximy
+            </a>
+          </p>
+        </footer>
       </div>
     </>
   );
