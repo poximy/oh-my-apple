@@ -1,6 +1,7 @@
-import NewsCard from '@components/NewsCard';
-import type { NextPage } from 'next';
 import Head from 'next/head';
+import type { NextPage } from 'next';
+
+import NewsCard from '@components/NewsCard';
 
 interface Props {
   newsData: NewsData | null;
