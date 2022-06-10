@@ -19,7 +19,7 @@ const NewsCard: FC<{ newsData: [string, news[]] }> = ({ newsData }) => {
   return (
     <ul className='flex w-full flex-col gap-2 md:w-5/6 lg:w-3/4'>
       <a href={url} className='w-fit text-white'>
-        <p className='font-bold font-mono text-2xl capitalize hover:underline'>
+        <p className='font-mono text-2xl font-bold capitalize hover:underline'>
           {title}
         </p>
       </a>
