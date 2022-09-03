@@ -8,7 +8,7 @@ You can find the app live at [https://apple-rumors.vercel.app](https://apple-rum
 
 ### Technologies
 
-App uses React, Next.js, Typescript
+App uses React, Next.js, TypeScript
 
 TailwindCSS is used for styling and animations
 
