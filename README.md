@@ -12,4 +12,8 @@ App uses React, Next.js, TypeScript
 
 TailwindCSS is used for styling and animations
 
+### System Requirements
+
+`node 16+ & mongodb`
+
 Made with ❤️
