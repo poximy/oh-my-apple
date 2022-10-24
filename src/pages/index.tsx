@@ -41,7 +41,7 @@ const Home: NextPage<Props> = ({ newsData }) => {
           <p className='col-span-3 text-4xl'>Error No News Found :(</p>
         ) : (
           <>
-            {Object.entries(newsData).map((newsData, index) => (
+            {Object.entries(newsData).map(newsData => (
               <NewsCard key={newsData[0]} newsData={newsData} />
             ))}
           </>
