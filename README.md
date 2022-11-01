@@ -2,7 +2,7 @@
 
 This app gathers Apple related rumors, displays the titles and links to the article
 
-You can find the app live at [https://apple-rumors.vercel.app](https://apple-rumors.vercel.app)
+You can find the app live at [https://apple.poximy.com](https://apple.poximy.com)
 
 ![Project view](/assets/web_app.png)
 
