@@ -18,8 +18,6 @@ Make sure you have the following software installed.
 
 - Node `1.16+`
 
-- MongoDB `4.4+`
-
 Now clone the repo & make it the active directory.
 
 Finally install the dependencies using the following command.
