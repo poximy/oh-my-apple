@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Apple news & rumors" />
+    <link rel="stylesheet" href="/public/styles.css" />
+    <title>Oh, My Apple</title>
+  </head>
+  <body class="my-3 flex flex-col gap-3">
+    <h1 class="text-center font-cursive text-4xl tracking-wider">
+      Oh, My Apple
+    </h1>
+    <main class="flex flex-wrap justify-center gap-y-3 font-mono">
+      {{ range $i, $Website := . }}
+        <input
+          type="radio"
+          id="tab-{{ $i }}"
+          name="tabs"
+          class="hidden"
+          {{ if eq $i 0 }}checked{{ end }}
+        />
+        <label
+          for="tab-{{ $i }}"
+          class="sticky bottom-0 order-1 w-1/3 cursor-pointer border-y border-r
+		  border-black bg-white py-3 text-center font-mono capitalize text-neutral-700 sm:top-0"
+          >{{ $Website.Name }}</label
+        >
+        <ul
+          class="mx-3 hidden w-full divide-y divide-neutral-300 border border-black
+		  sm:order-2 sm:mx-0 md:w-3/4 lg:w-2/3"
+        >
+          {{ range $Rumor := $Website.Rumors }}
+            <li class="hover:bg-primary">
+              <a
+                href="{{ $Rumor.Href }}"
+                target="_blank"
+                rel="noreferrer"
+                class="block h-full w-full p-4"
+                >{{ $Rumor.Title }}</a
+              >
+            </li>
+          {{ end }}
+        </ul>
+      {{ end }}
+    </main>
+    <footer>
+      <form
+        action="/signup"
+        method="post"
+        class="mx-3 space-y-1.5 md:mx-auto md:w-3/4 lg:w-2/3"
+      >
+        <p
+          class="relative mx-auto w-fit font-cursive text-xl tracking-wide
+          before:absolute before:-bottom-0.5 before:h-1.5 before:w-full before:bg-primary sm:text-2xl"
+        >
+          Subscribe to our Newsletter
+        </p>
+        <div class="relative font-mono">
+          <label for="email" class="hidden">Email</label>
+          <input
+            id="email"
+            type="email"
+            required
+            placeholder="email@company.com"
+            class="h-14 w-full rounded-none border border-black bg-white p-2
+			pr-[118px] outline-none placeholder:text-neutral-300"
+          />
+          <button type="submit" class="absolute right-2 top-2 bg-primary p-2">
+            Subscribe
+          </button>
+        </div>
+      </form>
+    </footer>
+    <script defer src="public/script.js"></script>
+  </body>
+</html>

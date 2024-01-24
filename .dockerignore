@@ -1,0 +1,20 @@
+.git/
+
+.gitignore
+.dockerignore
+.gcloudignore
+
+Dockerfile
+
+README.md
+LICENSE
+
+# macOS
+.DS_Store
+
+# frontend
+/public
+/node_modules
+
+# database
+database.db*

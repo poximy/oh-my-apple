@@ -1,39 +1,27 @@
 {
-  "name": "apple-rumors",
-  "version": "0.0.1",
-  "private": true,
+  "name": "ohmyapple",
+  "version": "1.0.0",
+  "author": "poximy",
+  "description": "Apple news & rumors",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/poximy/ohmyapple"
+  },
   "scripts": {
-    "dev": "vite dev",
-    "build": "vite build",
-    "preview": "vite preview",
-    "test": "playwright test",
-    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-    "test:unit": "vitest",
-    "lint": "prettier --plugin-search-dir . --check . && eslint .",
-    "format": "prettier --plugin-search-dir . --write ."
+    "format": "prettier --write . && prettier --write src/index.gohtml && go fmt .",
+    "build-css": "tailwind -i src/styles.css -o public/styles.css --minify",
+    "dev": "pnpm nodemon"
   },
   "devDependencies": {
-    "@playwright/test": "^1.28.1",
-    "@sveltejs/adapter-auto": "^2.0.0",
-    "@sveltejs/kit": "^1.5.0",
-    "@typescript-eslint/eslint-plugin": "^5.45.0",
-    "@typescript-eslint/parser": "^5.45.0",
-    "autoprefixer": "^10.4.13",
-    "eslint": "^8.28.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-svelte3": "^4.0.0",
-    "postcss": "^8.4.21",
-    "prettier": "^2.8.4",
-    "prettier-plugin-svelte": "^2.8.1",
-    "prettier-plugin-tailwindcss": "^0.2.3",
-    "svelte": "^3.54.0",
-    "svelte-check": "^3.0.1",
-    "tailwindcss": "^3.2.7",
-    "tslib": "^2.4.1",
-    "typescript": "^4.9.3",
-    "vite": "^4.0.0",
-    "vitest": "^0.25.3"
+    "nodemon": "^3.0.1",
+    "prettier": "^3.1.0",
+    "prettier-plugin-go-template": "^0.0.15",
+    "prettier-plugin-tailwindcss": "^0.5.7",
+    "tailwindcss": "^3.3.5"
   },
-  "type": "module"
+  "nodemonConfig": {
+    "signal": "SIGTERM",
+    "exec": "pnpm build-css && go run main.go",
+    "ext": "go, html, gohtml, css, js, json"
+  }
 }
